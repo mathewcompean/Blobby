@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <title>Hotel Transylvania 3 - Blobby On Deck | Sony Pictures</title>
+     
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="minimal-ui, initial-scale=1, maximum-scale=1, width=device-width, user-scalable=no">
+    <meta name="title" content="Hotel Transylvania 3 - Blobby On Deck | Sony Pictures">
+    <meta name="description" content="Mavis surprises Dracula with a family voyage on a luxury Monster Cruise Ship so he can take a vacation from providing everyone else's vacation at the hotel.">
+    <meta name="keywords" content="Hotel Transylvania 3: A Monster Vacation, animation, children's movie, animated movie, Sony Pictures, Adam Sandler, Andy Samberg, Selena Gomez, David Spade, Steve Buscemi, Molly Shannon, Keegan-Michael Key, Kevin James, Fran Drescher, Asher Blinkoff, and Mel Brooks">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="true" />
+
+
+    <meta property="og:title" content="Hotel Transylvania 3 - Blobby On Deck | Sony Pictures"/>
+    <meta property="og:url" content="http://www.blobbyondeck.com/">
+    <meta property="og:image" content="http://www.blobbyondeck.com/media/share.jpg"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:description" content="Mavis surprises Dracula with a family voyage on a luxury Monster Cruise Ship so he can take a vacation from providing everyone else's vacation at the hotel."/>
+    <meta property="og:site_name" content="Hotel Transylvania 3 - Blobby On Deck | Sony Pictures"/>
+
+
+    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="media/favicon.ico" type="image/x-icon"/>
+
+
+    <!--prefs-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!--libs-->
+    <script type="text/javascript" src="js/lib/three.min.js"></script>
+    <script type="text/javascript" src="js/lib/preloadjs.min.js"></script>
+    <script type="text/javascript" src="js/lib/soundjs.min.js"></script>
+    <script type="text/javascript" src="js/lib/TweenLite.min.js"></script>
+    <script type="text/javascript" src="js/lib/CSSPlugin.min.js"></script>
+    <script type="text/javascript" src="js/lib/EasePack.min.js"></script>
+    <script type="text/javascript" src="js/lib/SPE.min.js"></script>
+    <script type="text/javascript" src="js/lib/stats.min.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+
+    <style>
+.legal-notification-popup {
+    position: fixed;
+    left: 0;
+    bottom: -300px;
+    width: 260px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid;
+    z-index: 2147483648;
+    line-height: 40px;
+    padding: 30px;
+    margin: 30px;
+    box-shadow: 0px 1px 20px 0px rgb(8, 8, 8);
+    text-align: left !important;
+    font: 8pt Verdana !important;
+    color: #FFF;
+    transition: 0.7s bottom ease-out, 0.7s opacity ease-in;
+    opacity: 0;
+}
+
+.legal-notification-popup.visible {
+    bottom: 0;
+    opacity: 1;
+}
+
+.legal-notification-popup a {
+    color: DeepSkyBlue !important; curso;
+    font: 8pt Verdana !important;
+}
+
+.btn-close-popup {
+    display: block;
+    float: right;
+    background: rgba(255, 255, 255, 0.69);
+    color: #000;
+    font-weight: bold;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    padding-left: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px #FFF;
+    position: relative;
+    top: 0px;
+    margin-left: 10px;
+    transition: 0.2s all ease;
+}
+
+.btn-close-popup:hover {
+    background: rgb(255, 255, 255);
+}
+</style>
+<script>
+    (function() {
+        "use strict";
+
+        var notificationConfig = {
+            showNotification : function() {
+                if (this.getCookie("_PP-TOS")) {
+                    this.hideNotification();
+                } else {
+                    $('.legal-notification-popup').addClass('visible');
+                    this.setHandlers();
+                }
+                doPrep();
+            },
+            setCookie : function(cname, cvalue, expdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (expdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+            },
+            getCookie : function(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ')
+                        c = c.substring(1);
+                    if (c.indexOf(name) == 0)
+                        return c.substring(name.length, c.length);
+                }
+                return "";
+            },
+            hideNotification : function() {
+                $('.legal-notification-popup').removeClass('visible');
+                this.setCookie("_PP-TOS", (new Date()).toUTCString(), 365);
+            },
+            setHandlers : function() {
+                $(document).on('click', '.btn-close-popup', function() {
+                    notificationConfig.hideNotification();
+                });
+                window.onload = function() {
+                    window.setTimeout(function() {
+                        notificationConfig.hideNotification();
+                    }, 30000);
+                };
+            }
+        };
+
+        $(document).ready(function() {
+            notificationConfig.showNotification();
+        });
+    }());
+</script>
+
+    <!--blit tools-->
+
+
+
+    <!-- 
+    <script type="text/javascript" src="http://192.168.1.212/blit_tools/blit_prep.js"></script>
+    <script type="text/javascript" src="http://192.168.1.212/blit_tools/blit_input.js"></script>
+    <script type="text/javascript" src="http://192.168.1.212/blit_tools/blit_sounds.js"></script>
+    <script type="text/javascript" src="http://192.168.1.212/blit_tools/blit_tools.js"></script>
+    <script type="text/javascript" src="http://192.168.1.212/blit_tools/blit_saver.js"></script>
+
+    <script type="text/javascript" src="js/panel_legal.js"></script>
+    <script type="text/javascript" src="js/panel_controls.js"></script>
+    <script type="text/javascript" src="js/panel_pause.js"></script>
+    <script type="text/javascript" src="js/screen_loading.js"></script>
+    <script type="text/javascript" src="js/screen_title.js"></script>
+    <script type="text/javascript" src="js/screen_instructions.js"></script>
+    <script type="text/javascript" src="js/screen_game.js"></script>
+    <script type="text/javascript" src="js/screen_recap.js"></script>
+    <script type="text/javascript" src="js/game.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+     
+--> 
+
+    <script type="text/javascript" src="js/lib/blit_tools.min.js"></script>  
+    <script type="text/javascript" src="js/game.min.js"></script> 
+
+    <script type="text/javascript" src="prefs.js"></script>
+
+</head>
+
+    <body>
+        <h1 style="display:none">Hotel Transylvania 3 - Blobby On Deck | Sony Pictures</h1>
+
+        <canvas id="canvas_game"></canvas>
+        <div id="div_screens"></div>
+        <div id="div_legal"></div>
+        <div id="div_controls"></div>
+        <div id="div_loading"></div>
+        <div id="div_pause"></div>
+        <div id="div_errors"></div>
+
+        <div id="debug"></div>
+
+        <div id="omniturecode">
+        <script type="text/javascript" src="http://sonypictures.net/global/scripts/s_code.js"></script>
+        <script type="text/javascript">
+          s.pageName="us:movies:hoteltransylvania3:game:blobbyondeck:index.html";
+          s.channel=s.eVar3="us:movies";
+          s.prop3=s.eVar23="us:movies:hoteltransylvania3:blobbyondeck";
+          s.prop4=s.eVar4="us:hoteltransylvania3";
+          s.prop5=s.eVar5="us:movies:game";
+          s.prop11="us";
+
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        var s_code_session = s.t();
+        if (s_code_session) {
+        document.write(s_code_session); }
+        </script>
+        </div>
+
+        <div class="legal-notification-popup">
+            <span class="btn-close-popup">x</span>Sony Pictures Releasing (UK)’s
+            <a class="lnk-privacy-policy" href="privacy-policy" target="_blank">Privacy Policy</a>
+            and
+            <a class="lnk-cookie-policy" href="privacy-policy#cookies" target="_blank">Cookie Policy</a>
+            have Changed. By continuing to use our site you agree to the Terms of Use and Privacy Policy.
+        </div>
+ 
+
+    </body>
+
+
+</html>
+

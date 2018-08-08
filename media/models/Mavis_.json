@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "Murray_0001.png",
+	"frame": {"x":1449,"y":914,"w":284,"h":291},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":112,"w":284,"h":291},
+	"sourceSize": {"w":419,"h":419},
+	"pivot": {"x":0.5,"y":1}
+},
+{
+	"filename": "Murray_0002.png",
+	"frame": {"x":1744,"y":813,"w":284,"h":286},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":117,"w":284,"h":286},
+	"sourceSize": {"w":419,"h":419},
+	"pivot": {"x":0.5,"y":1}
+},
+{
+	"filename": "MurrayS_0025.png",
+	"frame": {"x":1672,"y":229,"w":298,"h":289},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":45,"y":102,"w":298,"h":289},
+	"sourceSize": {"w":419,"h":419},
+	"pivot": {"x":0.5,"y":1}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Murray_.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "0.91",
+	"smartupdate": "$TexturePacker:SmartUpdate:231b8e62a2c551d9dc17ddb379e46837:64697df127493f87fdb43dc805446abb:a31756fa34c0814ba7295ac726bcf5d8$"
+}
+}

@@ -1,0 +1,836 @@
+﻿
+@font-face{ 
+    font-family: "MontserratBold"; 
+    src: local('☺'), url('../media/fonts/MontserratBold.woff') format('woff');
+    font-style:normal;
+}
+@font-face{ 
+    font-family: "MontserratRegular"; 
+    src: local('☺'), url('../media/fonts/MontserratRegular.woff') format('woff');
+    font-style:normal;
+}
+@font-face{ 
+    font-family: "MouseMemoirs-Regular"; 
+    src: local('☺'), url('../media/fonts/MouseMemoirs-Regular.woff') format('woff');
+    font-style:normal;
+}
+
+
+
+html, body {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #0b111d;
+    overflow: hidden;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none; 
+    -webkit-user-callout: none;
+    -ms-touch-action: manipulation !important;
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}
+
+.loader_dummy{
+    position: absolute;
+    display: block;
+    width: 0px;
+    height: 0px;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+a, a:visited, a:hover, a:active, a:focus {
+    outline: 0;
+}
+
+
+
+img {
+    display: inline-block;
+   	background: transparent;
+    backface-visibility: hidden;
+}
+
+canvas{
+    backface-visibility: hidden;
+}
+
+div {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+    backface-visibility: hidden;
+}
+
+
+.clear {
+	clear: both;
+}
+
+.generic_absolute{
+    position: absolute;
+    display: block;
+}
+
+.generic_relative{
+    position: relative;
+    display: inline-block;
+}
+
+.generic_block{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*==========================*/
+/* wrapper */
+/*==========================*/
+
+
+#debug{
+    position: absolute;
+    display: inline-block;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(255,0,0,0.5);
+    color: #ffffff;
+    pointer-events: none;
+    font-size: 10px;
+    font-family: "Arial";
+    z-index: 1000;
+}
+
+#div_loading{
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: 100;
+    background-color: #0b111d;
+    -ms-transform-origin: 0% 0%; /* IE 9 */
+    -webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+}
+
+#div_errors{
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 0px;
+    font-family: Arial, Helvetica;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    color: white;
+    z-index: 100;
+    background-color: #0b111d;
+}
+
+
+#div_pause{
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    text-align: center;
+    background-color: rgba(0,38,65,.66);
+    -ms-transform-origin: 0% 0%; /* IE 9 */
+    -webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+}
+
+#div_screens {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    text-align: center;
+    -ms-transform-origin: 0% 0%; /* IE 9 */
+    -webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+    pointer-events: auto;
+}
+
+#canvas_game{
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 0px;
+}
+
+#div_legal{
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    overflow: visible;
+    background-color: #0b111d;
+    touch-action: none;
+    font-size: 20px;
+    -webkit-overflow-scrolling: none;
+    -webkit-text-size-adjust: 100%;
+     -ms-transform-origin: 0% 0%; /* IE 9 */
+    -webkit-transform-origin: 0% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 0% 0%;
+}
+
+#div_controls{
+    position: absolute;
+    display: block;
+    top:0px;
+    right:0px;
+    width: 74px;
+    padding-top: 5px;
+    padding-right: 10px;
+    -ms-transform-origin: 100% 0%; /* IE 9 */
+    -webkit-transform-origin: 100% 0%; /* Chrome, Safari, Opera */
+    transform-origin: 100% 0%;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*==========================*/
+/* title screen */
+/*==========================*/
+
+.film_logo_block{
+    position: absolute;
+    display: block;
+    top: 20px;
+    left: 0px;
+    text-align: center;
+    pointer-events: none;
+    color: #fcc884;
+    font-size: 14px;
+    font-family: "MontserratBold";
+}
+
+.film_logo_date{
+    color: #fcc884;
+    font-size: 14px;
+    font-family: "MontserratBold";
+}
+
+.film_logo_img{
+    height: 60px;
+    width: auto;
+}
+
+.game_logo{
+    position: absolute;
+    display: block;
+    font-size: 130px;
+    line-height: 120px;
+    left: 0px;
+    top: 110px;
+    width:350px;
+    text-align: center;
+    white-space: nowrap;
+    color: #b0de12;
+    font-family: "MouseMemoirs-Regular";
+    text-shadow: 0px 10px 10px rgba(0,0,0,1);
+    pointer-events: none;
+}
+
+.character_title{
+    position: absolute;
+    display: block;
+    width: 561px;
+    height: 460px;
+    right: -100px;
+    bottom: 0px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../media/blobby_title.png');
+
+}
+
+.character_recap{
+    position: absolute;
+    display: block;
+    width: 563px;
+    height: 610px;
+    right: -100px;
+    bottom: 0px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('../media/blobby_recap.png');
+}
+
+.b_main{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    left:-10px;
+    top:20px;
+    height: 50px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 50px;
+    color: #ffffff;
+    white-space: nowrap;
+    padding-left: 35px;
+    padding-right: 25px;
+    border-radius: 0px 25px 25px 0px;
+    font-family: "MouseMemoirs-Regular";
+    background: linear-gradient(#8192a4, #1c2236, #1b2136);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.6);
+    cursor: pointer;
+
+    -webkit-transition: left 0.25s; /* Safari */
+    transition: left 0.25s;
+}
+
+/*inner panel*/
+.b_main::before{
+    z-index: -1;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 3px;
+    left: 0px;
+    height: calc(100% - 6px);
+    width: calc(100% - 3px);
+    border-radius: 0px 22px 22px 0px;
+    background: linear-gradient(#1c1d21, #394750, #323e46);
+}
+
+
+.b_main:hover{
+    left: 0px;
+    }
+
+.b_play{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    left:50px;
+    bottom:45px;
+    height: 90px;
+    min-width: 300px;
+    font-size: 65px;
+    text-align: center;
+    line-height: 90px;
+    color: #ffffff;
+    white-space: nowrap;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 34px;
+    font-family: "MouseMemoirs-Regular";
+    background: linear-gradient(#c6f1aa, #c3f0a6, #019131, #062d10);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.6);
+    cursor: pointer;
+
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform-origin: 50% 50%;
+
+}
+
+
+/*inner panel*/
+.b_play::before{
+    z-index: -1;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    width: calc(100% - 8px);
+    border-radius: 30px;
+    background: linear-gradient(#84bf2d, #049230, #049230, #80bd2e);
+}
+
+
+.b_instructions{
+    z-index: 1;
+    position: absolute;
+    display: block;
+    right:20px;
+    bottom:45px;
+    height: 65px;
+    font-size: 45px;
+    text-align: center;
+    line-height: 65px;
+    color: #ffffff;
+    white-space: nowrap;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 30px;
+    font-family: "MouseMemoirs-Regular";
+    background: linear-gradient(#feedf0, #e84e81, #c61750, #b80c54);
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.6);
+    cursor: pointer;
+     -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform-origin: 50% 50%;
+}
+
+
+/*inner panel*/
+.b_instructions::before{
+    z-index: -1;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 3px;
+    left: 3px;
+    height: calc(100% - 6px);
+    width: calc(100% - 6px);
+    border-radius: 26px;
+    background: linear-gradient(#f60277, #c30d77, #bb0e7f, #f6029d);
+}
+
+/*==========================*/
+/* instructions screen */
+/*==========================*/
+
+.instructions_header{
+    position: relative;
+    display: block;
+    font-size: 45px;
+    margin-top: 10px;
+    white-space: nowrap;
+    font-family: "MouseMemoirs-Regular";
+    color: white;
+    pointer-events: none;
+}
+
+.instructions_image{
+    position: absolute;
+    display: block;
+     background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+   /* background-image: url('../media/instructions.gif');*/
+}
+
+
+/*==========================*/
+/* recap screen */
+/*==========================*/
+
+.recap_table{
+    position: absolute;
+    display: block;
+    font-size: 130px;
+    line-height: 140px;
+    left: 0px;
+    top: 110px;
+    text-align: center;
+    white-space: nowrap;
+    color: #b0de12;
+    padding: 10px;
+     text-shadow: 0px 6px 6px rgba(0,0,0,1);
+    font-family: "MouseMemoirs-Regular";
+    pointer-events: none;
+}
+
+.recap_tablecell{
+    padding-left: 10px;
+    padding-right: 10px;
+    pointer-events: none;
+ }
+
+
+/*==========================*/
+/* loader */
+/*==========================*/
+
+.loader_group{
+    position: absolute;
+    display: block;
+    text-align: center;
+    border: 1px solid red;
+}
+
+.loader_spinner{
+    position: absolute;
+    display: block;
+    width: 256px;
+    height: 256px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../media/BatLoader_White.gif')
+}
+
+.loader_bar{
+    position: absolute;
+    display: block;
+    width: 256px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.loader_bar_fill{
+    position: absolute;
+    display: block;
+    left: 0px;
+    top:0px;
+    height: 100%;
+    width: 0%;
+
+    background: linear-gradient(#b0de12, #cde922, #81a606);
+   
+}
+
+
+/*==========================*/
+/* pause menu */
+/*==========================*/
+
+
+.pause_menu_block{
+    position: relative;
+    display: inline-block;
+}
+
+.pause_menu{
+    position: relative;
+    display: block;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-align: center;
+    font-family: "MouseMemoirs-Regular";
+    font-size: 40px;
+    letter-spacing: 1px;
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+
+/*==========================*/
+/* legal */
+/*==========================*/
+
+
+.legal_block {
+    position: relative;
+    display: inline-block;
+    top: 0px;
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    font-family: "MontserratRegular";
+    color: #ffffff;
+    text-align:center;
+    pointer-events: none;
+    background-color: #000000;
+}
+
+/*legal links*/
+.legal_link {
+    text-decoration: none;
+    pointer-events: auto;
+    white-space: nowrap;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: "MontserratRegular";
+}
+
+.legal_link:hover {
+    color: #faaf1e;
+}
+.legal_link:active {
+    color: #faaf1e;
+}
+
+/*legal links for mobile*/
+.legal_link_mobile {
+    text-decoration: none;
+    pointer-events: auto;
+    white-space: nowrap;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: "MontserratRegular";
+}
+
+/*legal tab button*/
+.b_legal {
+    position: absolute;
+    display: block;
+    top: -45px;
+    left: 0px;
+    height: 46px;
+    min-width: 120px;
+    pointer-events: auto;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    color: #ffffff;
+    padding-right: 20px;
+    padding-left: 20px;
+    pointer-events: auto;
+    font-family: "MontserratRegular";
+    border-radius: 0px 30px 0px 0px;
+    background-color: #000000;
+}
+
+.b_legal:active {
+    color: #faaf1e;
+}
+.b_legal:hover {
+    color: #faaf1e;
+}
+
+
+/*legal tab button*/
+.b_legal_mobile {
+    position: absolute;
+    display: block;
+    top: -45px;
+    left: 0px;
+    height: 46px;
+    min-width: 120px;
+    pointer-events: auto;
+    cursor: pointer;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+    text-decoration: none !important;
+    white-space: nowrap;
+    color: #ffffff;
+    padding-right: 20px;
+    padding-left: 20px;
+    pointer-events: auto;
+    font-family: "MontserratRegular";
+    border-radius: 0px 30px 0px 0px;
+    background-color: #000000;
+}
+
+
+
+
+
+
+.legal_image{
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    pointer-events: none;
+}
+
+
+
+
+
+/*==========================*/
+/* mute/fullscreen/pause    */
+/*==========================*/
+
+.b_fullscreen{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:64px;
+    margin-top: 5px;
+    pointer-events:auto;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-image: url('../media/b_fullscreen_on.svg');
+}
+.b_fullscreen:hover{
+    cursor:pointer;
+    background-image: url('../media/b_fullscreen_on_over.svg');
+}
+
+.b_fullscreen_on{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:64px;
+    margin-top: 5px;
+    pointer-events:auto;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-image: url('../media/b_fullscreen_off.svg');
+}
+.b_fullscreen_on:hover{
+    cursor:pointer;
+    background-image: url('../media/b_fullscreen_off_over.svg');
+}
+
+.b_mute{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:64px;
+    margin-top: 5px;
+    pointer-events:auto;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-image: url('../media/b_sound_on.svg');
+}
+.b_mute:hover{
+    cursor:pointer;
+    background-image: url('../media/b_sound_on_over.svg');
+}
+
+.b_mute_on{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:64px;
+    margin-top: 5px;
+    pointer-events:auto;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-image: url('../media/b_sound_off.svg');
+}
+.b_mute_on:hover{
+    cursor:pointer;
+    background-image: url('../media/b_sound_off_over.svg');
+}
+
+.b_pause{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    height:64px;
+    margin-top: 5px;
+    pointer-events:auto;
+    background-repeat: no-repeat;
+    background-size: 64px 64px;
+    background-image: url('../media/b_pause.svg');
+}
+.b_pause:hover{
+    cursor:pointer;
+    background-image: url('../media/b_pause_over.svg');
+}
+
+
+
+
+/*==========================*/
+/* game */
+/*==========================*/
+
+
+.hud_score{
+    position: absolute;
+    display: block;
+    font-size: 30px;
+    left: 15px;
+    top: 0px;
+    height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    color: #b0de12;
+    font-family: "MontserratBold";
+    pointer-events: none;
+
+}
+.hud_score_amt{
+    position: absolute;
+    display: block;
+    font-size: 70px;
+    left: 15px;
+    top: 25px;
+    text-align: left;
+    white-space: nowrap;
+    color: #ffffff;
+    font-family: "MontserratBold";
+    pointer-events: none;
+}
+
+.hud_messages{
+    position: absolute;
+    display: none;
+    font-size: 120px;
+    white-space: nowrap;
+    color: #ffffff;
+    font-family: "MouseMemoirs-Regular";
+    text-shadow: 0px 6px 6px rgba(0,0,0,1);
+    pointer-events: none;
+}
+
+
+.game_button_left{
+    position: absolute;
+    display: block;
+    left:-20px;
+    bottom:-20px;
+    width: 200px;
+    height: 200px;
+
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 400px 200px;
+    background-image: url('../media/game_buttons.png');
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.game_button_left:hover{
+    background-position: -200px 0px;
+}
+
+.game_button_right{
+    position: absolute;
+    display: block;
+    right:-20px;
+    bottom:-20px;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 400px 200px;
+    background-image: url('../media/game_buttons.png');
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.game_button_right:hover{
+    background-position: -200px 0px;
+}

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+
+    <!--images-->
+    <img id="logo">media/logo_en.png</img>
+ 
+    <!--general-->
+    <txt id="comma">,</txt>
+
+    <txt id="legal">LEGAL</txt>
+
+    <txt id="date_msg_1">ONLY IN CINEMAS</txt>
+    <txt id="date_msg_2">ONLY IN CINEMAS</txt>
+    <txt id="date_msg_3">ONLY IN CINEMAS</txt>
+    <txt id="date_msg_4">ONLY IN CINEMAS</txt>
+
+    <txt id="title"><![CDATA[Blobby On<BR>Deck]]></txt>
+
+    <txt id="main_site">Main Site</txt>
+    <txt id="play">Play</txt>
+    <txt id="instructions">Instructions</txt>
+    <txt id="score">Score:</txt>
+    <txt id="best_score">Best Score:</txt>
+    <txt id="play_again">Play Again</txt>
+
+
+    <txt id="hud_score">score:</txt>
+
+    <txt id="quit">Quit Game</txt>
+    <txt id="resume">Resume Game</txt>
+
+
+    <txt id="msg_ready">Ready?</txt>
+    <txt id="msg_go">Go!</txt>
+    <txt id="msg_gameover">Game Over</txt>
+
+
+    <txt id="legal_mpaa">MPAA.ORG</txt>
+    <txt id="legal_childrens_privacy">CHILDREN'S PRIVACY POLICY</txt>
+    <txt id="legal_privacy">PRIVACY POLICY</txt>
+    <txt id="legal_adchoices">AD CHOICES</txt>
+    <txt id="legal_terms">TERMS OF USE</txt>
+    <txt id="legal_cal_privacy">CALIFORNIA PRIVACY POLICY</txt>
+    <txt id="legal_copyright">©2018 Sony Pictures Digital Productions Inc. All Rights Reserved.</txt>
+
+
+
+    <txt id="browser_alert">YOUR BROWSER SEEMS TO BE OUT OF DATE. PLEASE ENSURE THAT YOU ARE RUNNING ONE OF THESE LATEST BROWSERS.</txt>
+    
+</xml>
